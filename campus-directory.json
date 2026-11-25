@@ -1,0 +1,108 @@
+{
+  "datasetName": "上海高校餐饮点位目录（拾衡试点）",
+  "version": "2026-10-21-v1",
+  "checkedOn": "2026-10-21",
+  "dataBoundary": "校方公开餐厅点位与服务时段目录，不是实时菜品、价格、库存、营养或营业状态接口。",
+  "campuses": [
+    {
+      "id": "sisu-songjiang",
+      "school": "上海外国语大学",
+      "campus": "松江校区",
+      "label": "上外 · 松江校区",
+      "sourceTitle": "上海外国语大学生活设施：松江校区餐饮服务",
+      "sourceUrl": "https://www.shisu.edu.cn/campus-life/communities-and-services/index.html",
+      "menuSourceTitle": "2025年10月上外松江饮食部基本菜肴品种及价格（历史页面）",
+      "menuSourceUrl": "https://info.shisu.edu.cn/a9/d4/c163a43476/page.htm",
+      "menuSourceNote": "网页发布日期为2025-10-10，但页面内菜单表格标注2023-10-25；这里只保留为历史公开菜单线索，不用于判定当前在售、当前价格或营养。",
+      "historicalMenuDate": "2023-10-25",
+      "historicalMenuPreview": [
+        { "name": "青椒绿豆芽", "priceYuan": 1.00, "unit": "份" },
+        { "name": "红烧豆腐", "priceYuan": 1.00, "unit": "份" },
+        { "name": "红烧大排", "priceYuan": 2.70, "unit": "份" },
+        { "name": "三色鸡丁", "priceYuan": 4.00, "unit": "份" },
+        { "name": "鱼香肉丝", "priceYuan": 4.00, "unit": "份" },
+        { "name": "红烧鸡腿", "priceYuan": 4.00, "unit": "份" },
+        { "name": "炸鸡腿", "priceYuan": 6.00, "unit": "份" },
+        { "name": "肉包", "priceYuan": 0.80, "unit": "个" },
+        { "name": "白煮蛋", "priceYuan": 1.00, "unit": "个" },
+        { "name": "红焖牛腩面", "priceYuan": 15.00, "unit": "碗" }
+      ],
+      "diningPoints": [
+        "食堂1A",
+        "食堂1B（清真食堂）",
+        "食堂2A",
+        "食堂2B",
+        "食堂3B",
+        "临时就餐点",
+        "西餐厅",
+        "周末食堂（食堂1B）"
+      ],
+      "verifiedCampusFoodRecords": 0
+    },
+    {
+      "id": "sufe-guoding-wudong",
+      "school": "上海财经大学",
+      "campus": "国定路、武东校区",
+      "label": "上财 · 国定路 / 武东校区",
+      "sourceTitle": "上海财经大学后勤管理处：餐饮服务",
+      "sourceUrl": "https://hq.sufe.edu.cn/20008/list.htm",
+      "diningPoints": [
+        "第一食堂",
+        "第二食堂",
+        "教工餐厅",
+        "第三食堂一楼",
+        "第三食堂二楼、三楼",
+        "第六食堂"
+      ],
+      "verifiedCampusFoodRecords": 0
+    },
+    {
+      "id": "sufe-wuchuan",
+      "school": "上海财经大学",
+      "campus": "武川校区",
+      "label": "上财 · 武川校区",
+      "sourceTitle": "上海财经大学后勤管理处：餐饮服务",
+      "sourceUrl": "https://hq.sufe.edu.cn/20008/list.htm",
+      "diningPoints": [
+        "第四食堂一楼",
+        "第四食堂二楼"
+      ],
+      "verifiedCampusFoodRecords": 0
+    },
+    {
+      "id": "sufe-zhongshan",
+      "school": "上海财经大学",
+      "campus": "中山北一路校区",
+      "label": "上财 · 中山北一路校区",
+      "sourceTitle": "上海财经大学后勤管理处：餐饮服务",
+      "sourceUrl": "https://hq.sufe.edu.cn/20008/list.htm",
+      "diningPoints": ["第五食堂"],
+      "verifiedCampusFoodRecords": 0
+    },
+    {
+      "id": "sufe-jinian",
+      "school": "上海财经大学",
+      "campus": "纪念路校区",
+      "label": "上财 · 纪念路校区",
+      "sourceTitle": "上海财经大学后勤管理处：餐饮服务",
+      "sourceUrl": "https://hq.sufe.edu.cn/20008/list.htm",
+      "diningPoints": ["国教食堂"],
+      "verifiedCampusFoodRecords": 0
+    }
+  ],
+  "futureSchema": {
+    "requiredFields": [
+      "campusId",
+      "venue",
+      "name",
+      "collectedOn",
+      "priceEvidence",
+      "priceSource",
+      "nutritionBasis",
+      "nutritionEvidence",
+      "onSale",
+      "reviewStatus"
+    ],
+    "recommendationRule": "只允许当前校区、30天内、来源可追溯、人工复核、确认在售且营养字段完整的团队餐品进入校园个性化推荐。"
+  }
+}

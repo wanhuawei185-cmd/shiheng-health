@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="zh-CN" data-public-demo="true">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f2e9" />
+    <meta name="description" content="拾衡帮助用户记录饮食、查看摄入消耗并安排个性化训练。" />
+    <title>拾衡 · 饮食与运动计划</title>
+    <link rel="stylesheet" href="./styles.css?v=sisu-home-photos-v2" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="主导航">
+        <a class="brand" href="#today" aria-label="拾衡首页">
+          <span class="brand-mark"><span></span><span></span><span></span></span>
+          <span><strong>拾衡</strong><small>EVERYDAY, IN BALANCE</small></span>
+        </a>
+
+        <div class="nav-label">你的空间</div>
+        <nav class="main-nav">
+          <button class="nav-item active" data-view-target="today" aria-current="page">
+            <span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="16" rx="2.5" /><path d="M8 3v4M16 3v4M3.5 9h17M8 13h3M8 17h6" /></svg></span><span>今天</span><span class="nav-dot"></span>
+          </button>
+          <button class="nav-item" data-view-target="food">
+            <span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3v6m4-6v6M4 6h4M6 9v12M14 3v18M18 3v18M14 8c0-2.8 1.3-5 3-5" /></svg></span><span>吃饭</span>
+          </button>
+          <button class="nav-item calorie-nav-item" data-view-target="calories">
+            <span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 2.8 5.8 13h5l-.8 8.2L18.2 11h-5z" /></svg></span><span>能量</span>
+          </button>
+          <button class="nav-item" data-view-target="training">
+            <span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6M7 6v12M7 12h10M17 6v12M20 9v6" /></svg></span><span>训练</span>
+          </button>
+          <button class="nav-item" data-view-target="progress">
+            <span class="nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5V5M4 19.5H20M7 15l4-4 3 2 5-6" /></svg></span><span>进度</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="sidebar-note">
+            <span class="note-spark">✳</span>
+            <p>计划是给生活<br />留一点余地。</p>
+            <small>慢一点，也算在前进。</small>
+          </div>
+          <button class="profile-button" id="openProfile">
+            <span class="avatar">周</span>
+            <span class="profile-copy"><strong id="sidebarName">小周</strong><small>演示档案</small></span>
+            <span class="profile-chevron">⌄</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div class="breadcrumb"><span>拾衡</span><span class="breadcrumb-slash">/</span><strong id="crumbTitle">今天</strong></div>
+          <div class="top-actions">
+            <span class="local-pill"><i></i> 数据保存在本机</span>
+            
+          </div>
+        </header>
+
+        <aside class="page-unit-nav" id="pageUnitNav" aria-label="当前页面单元">
+          <div class="page-unit-nav-heading"><span class="card-index">本页索引</span><strong id="pageUnitNavTitle">本页内容</strong></div>
+          <nav id="pageUnitNavItems" aria-label="当前页面内容导航"></nav>
+          <p class="page-unit-nav-hint">点击单元可直接查看</p>
+        </aside>
+
+        <section class="view active" id="view-today" aria-labelledby="todayHeading">
+          <div class="welcome-row">
+            <div>
+              <div class="eyebrow"><span class="eyebrow-line"></span><span id="todayDate">周三 · 10月15日</span></div>
+              <p class="welcome-name"><span id="welcomeName">小周</span>的今日计划</p>
+              <h1 id="todayHeading">今天，<em>吃练都有数。</em></h1>
+              <p class="welcome-subtitle">从个人目标出发，给出能执行、能记录、可回看的健康行动。</p>
+            </div>
+            <button class="welcome-visual" id="welcomeMascot" type="button" aria-label="点一下欢迎界面的小拾，看看它的回应">
+              <span class="welcome-visual-reaction" id="welcomeMascotReaction" role="status" aria-live="polite" hidden></span>
+              <span class="welcome-visual-spark" aria-hidden="true">✦</span><span class="welcome-visual-orbit" aria-hidden="true"></span>
+              <img src="./assets/xiaoshi-mascot.png?v=20261030-xiaoshi-v1" alt="" /><small>点我互动</small>
+            </button>
+            <button class="edit-profile" id="openProfileTop"><span>个人设置</span><b aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" /></svg></b></button>
+          </div>
+          <div class="section-heading" id="todayPlan">
+            <div><div class="eyebrow small-eyebrow">PLAN FOR TODAY</div><h2>今日建议</h2></div>
+            <span class="section-date" id="sectionPlanLabel">今天 · 轻力量日</span>
+          </div>
+          <div class="today-grid">
+            <article class="workout-card card-surface" data-page-unit="今日训练建议">
+              <div class="card-topline"><span class="card-index">01 / MOVE</span><span class="duration-chip"><span>◷</span> <b id="workoutDuration">28</b> 分钟</span></div>
+              <div class="workout-title-row"><div><div class="workout-category">全身基础 · 无器材</div><h3 id="workoutTitle">轻力量，找回状态</h3></div><div class="workout-stamp">GO<br />EASY</div></div>
+              <p class="card-description" id="workoutDescription">动作放慢，留意呼吸。觉得吃力时，可以缩短一组或休息。</p>
+              <div class="exercise-list" id="exerciseList"></div>
+              <div class="workout-footer"><span class="safety-hint">◇ 预计消耗 <b id="todayKcal">—</b> kcal</span><button class="primary-button" data-view-target="training">查看完整训练 <span>↗</span></button></div>
+            </article>
+
+            <article class="meal-card card-surface" data-page-unit="午餐灵感">
+              <div class="meal-head"><div><div class="card-index">02 / EAT WELL</div><h3>午餐灵感</h3></div><span class="scene-label"><i>⌖</i> <span id="sceneLabel">校内样例</span></span></div>
+              <p class="meal-intro" id="mealIntro">按你的预算和偏好，挑一份今天好实现的搭配。</p>
+              <div class="meal-controls">
+                <label class="select-wrap"><span class="sr-only">选择就餐场景</span><select id="sceneSelect"><option value="campus">校内食堂</option><option value="convenience">便利店</option><option value="market">超市自选</option></select><span class="select-arrow">⌄</span></label>
+                <label class="budget-wrap"><span>预算</span><select id="budgetSelect" aria-label="选择每餐预算"><option value="18">≤ ¥18</option><option value="20">≤ ¥20</option><option value="22" selected>≤ ¥22</option><option value="30">≤ ¥30</option></select></label>
+              </div>
+              <div class="meal-picks" id="mealPicks"></div>
+              <div class="meal-bottom"><span id="mealFootnote">数值为原型估算，门店与份量会有差异</span><button class="text-button" id="mealMoreChoices" data-view-target="food">更多选择 <b>→</b></button></div>
+            </article>
+          </div>
+          <div class="home-goal-context" data-page-unit="计划依据">
+            <span>计划依据</span>
+            <strong>运动消耗估算按当前体重 <b id="currentWeight">68.4</b> kg 计算</strong>
+            <button type="button" data-view-target="progress">查看身体目标与进度 <span aria-hidden="true">→</span></button>
+          </div>
+          <div class="disclaimer"><span>ⓘ</span> 这是健身计划演示原型，不提供医疗或营养治疗建议。若运动中感到疼痛或不适，请停止并寻求专业帮助。</div>
+        </section>
+
+        <section class="view" id="view-training" aria-labelledby="trainingHeading">
+          <div class="page-intro"><div class="eyebrow"><span class="eyebrow-line"></span> MOVE, AT YOUR PACE</div><h1 id="trainingHeading">选部位，<em>开始训练。</em></h1><p>选想练的部位或跑步方式，设定时长。每做完一个动作点击“完成”，消耗会记入「摄入消耗」。</p></div>
+          <section class="training-controls card-surface" aria-label="训练计划设置" data-page-unit="选择部位与时长">
+            <label><span>今天想练</span><select id="trainingFocus"><option value="full">全身基础</option><option value="chest">胸部</option><option value="back">背部</option><option value="shoulders">肩部</option><option value="legs">腿部</option><option value="glutes">臀部</option><option value="core">核心稳定</option><option value="cardio">低冲击有氧</option><option value="running">跑步 / 跑走交替</option><option value="gym">健身房综合力量</option><option value="recovery">轻松恢复</option></select></label>
+            <label><span>可用器材</span><select id="trainingEquipment"><option value="bodyweight">徒手 / 家用椅</option><option value="band">有弹力带</option><option value="dumbbell">有轻哑铃</option><option value="gym">健身房器械</option><option value="running">跑步机 / 户外</option></select></label>
+            <label><span>训练总时长</span><select id="trainingDuration"><option value="15">约15分钟</option><option value="20">约20分钟</option><option value="25" selected>约25分钟</option><option value="30">约30分钟</option><option value="35">约35分钟</option><option value="40">约40分钟</option><option value="45">约45分钟</option><option value="50">约50分钟</option><option value="60">约60分钟</option></select></label>
+            <button class="outline-button" id="regenerateTraining" type="button">重新排一组 ↻</button>
+          </section>
+          <section class="training-plan-card card-surface" aria-labelledby="todayTrainingTitle" data-page-unit="今日训练安排">
+            <div class="training-plan-head"><div><span class="card-index">TODAY'S SESSION</span><h2 id="todayTrainingTitle">今日训练安排</h2><p id="trainingPlanCaption">热身 → 主训练 → 放松；按自己的节奏完成。</p><p class="training-goal-cue" id="trainingGoalCue"></p></div><div class="training-calorie"><strong id="planKcal">—</strong><span>kcal 估算区间</span></div></div>
+            <div class="training-plan-meta"><span>⏱ <b id="planMinutes">—</b> 分钟</span><span>使用体重 <b id="planWeight">—</b> kg</span><span id="planFocusLabel">全身基础</span></div>
+            <section class="guided-session" id="guidedSession" aria-live="polite" aria-label="训练跟练" data-page-unit="开始跟练"></section>
+            <div id="trainingPlanList" class="training-plan-list" data-page-unit="动作清单"></div>
+            <div class="training-estimate-note">计划总时长包含热身、主训练和放松；每个动作可单独设 1–30 分钟。动作消耗按通用抗阻活动区间估算，受休息和个体差异影响，不是肌群实测值。</div>
+            <div class="training-checkin" data-page-unit="训练后反馈">
+              <div><span class="card-index">AFTER WORKOUT</span><h3>完成后，今天感觉如何？</h3><p>反馈会影响下周的训练建议。感觉疼痛、头晕或胸闷时请立即停止。</p></div>
+              <div class="effort-buttons"><button type="button" data-effort="easy">比较轻松</button><button type="button" data-effort="moderate">刚刚好</button><button type="button" data-effort="hard">有点吃力</button></div>
+            </div>
+          </section>
+          <details class="exercise-library-fold" data-page-unit="完整动作库"><summary><strong>浏览完整动作库</strong><span>按部位、跑步或器械筛选动作</span></summary><section class="exercise-library-section">
+            <div class="food-result-heading"><div><span class="card-index">MOVEMENT LIBRARY</span><h2>动作库</h2></div><span class="result-count" id="exerciseResultCount">— 个动作</span></div>
+            <div class="exercise-library-toolbar card-surface"><div class="segmented" id="exerciseFocusFilters"><button class="selected" data-exercise-focus="all">全部</button><button data-exercise-focus="chest">胸</button><button data-exercise-focus="back">背</button><button data-exercise-focus="shoulders">肩</button><button data-exercise-focus="legs">腿</button><button data-exercise-focus="glutes">臀</button><button data-exercise-focus="core">核心</button><button data-exercise-focus="running">跑步</button><button data-exercise-focus="gym">健身房</button><button data-exercise-focus="recovery">恢复</button></div><label class="search-box"><span>⌕</span><input id="exerciseSearch" placeholder="搜索动作" aria-label="搜索动作" /></label></div>
+            <div class="exercise-library-grid" id="exerciseLibrary"></div>
+          </section></details>
+          <div class="disclaimer"><span>ⓘ</span> 动作仅供一般成年人的低门槛演示。请先确认环境和器材稳固；疼痛或身体不适时停止，不要勉强完成计划。</div>
+        </section>
+
+        <section class="view" id="view-food" aria-labelledby="foodHeading">
+          <div class="page-intro"><div class="eyebrow"><span class="eyebrow-line"></span> CAMPUS FOOD DATA · HEALTHY CHOICE</div><h1 id="foodHeading">记一餐，<em>再选下一餐。</em></h1><p>先用照片估算并核对份量，或按预算、就餐场景挑选餐食。记录会进入今天的摄入统计。</p></div>
+          <section class="photo-estimator card-surface" aria-labelledby="photoEstimatorHeading" data-page-unit="拍照估算">
+            <div class="photo-estimator-copy">
+              <div class="card-index">AI FOOD CHECK · PHOTO ESTIMATE</div>
+              <h2 id="photoEstimatorHeading">拍张照片，<em>估个热量。</em></h2>
+              <p>从相册选图或直接拍照，识别主要食物并估算份量、热量和三大营养素。复杂摆盘可补充菜名与份量；识别结果可以修改并保存。</p>
+              <label class="portion-label" for="mealPortionHint">份量补充（可选）</label>
+              <input id="mealPortionHint" class="portion-input" maxlength="120" placeholder="例：主菜是三文鱼，米饭半碗，酱汁另放" autocomplete="off" />
+              <div class="photo-estimator-actions">
+                <input id="mealPhotoInput" class="scan-file-input" type="file" accept="image/*,.heic,.heif" aria-label="从相册选择餐食照片" />
+                <label class="scan-upload-button primary-button" for="mealPhotoInput"><span>从相册选择</span><b>↗</b></label>
+                <input id="mealCameraInput" class="scan-file-input" type="file" accept="image/*" capture="environment" aria-label="直接拍摄餐食照片" />
+                <button class="scan-camera-button outline-button" id="openMealCamera" type="button">现在拍一张</button>
+                <button class="primary-button analyze-photo-button" id="analyzeMealPhoto" type="button" disabled>开始估算 <span>↗</span></button>
+                <button class="outline-button" id="focusMealPhoto" type="button" disabled>裁剪中心后重试</button>
+                <button class="outline-button" id="clearMealPhoto" type="button" disabled>清除</button>
+              </div>
+              <p class="photo-privacy-note">照片仅在当前浏览器预览。</p>
+            </div>
+            <div class="photo-preview-shell" id="photoPreviewShell">
+              <div class="photo-preview-empty" id="photoPreviewEmpty"><span>＋</span><strong>一张餐食照片</strong><small>尽量从上方拍清楚整份餐食；复杂摆盘可只拍主菜</small></div>
+              <img id="mealPhotoPreview" alt="所选餐食照片预览" hidden />
+            </div>
+            <div class="photo-status" id="photoStatus" role="status" aria-live="polite">正在检查本机识别服务配置…</div>
+            <div class="nutrition-result" id="nutritionResult" aria-live="polite" hidden></div>
+            
+          </section>
+          
+
+          
+          
+          <div class="food-selection-heading"><h2>挑选下一餐</h2><span>选择高校后，看看今天还差什么</span></div>
+          <section class="campus-match-board card-surface" data-page-unit="挑选下一餐" aria-labelledby="campusMatchHeading">
+            <div class="campus-match-top">
+              <div><span class="card-index">CAMPUS FOOD · DAILY ENERGY GAP</span><h2 id="campusMatchHeading">按今日缺口，找一份合适的餐</h2><p>根据今天的能量情况、预算和营养偏好，挑选合适的参考餐食。</p></div>
+              <div class="campus-select-wrap"><span>当前高校</span><button class="outline-button school-change-button" id="changeUniversity" type="button"><strong id="currentUniversity">未设置</strong><span>更换高校 →</span></button></div>
+            </div>
+            <div class="campus-gap-metrics" id="campusGapMetrics" aria-live="polite"></div>
+          </section>
+          <div class="food-toolbar card-surface" data-page-unit="筛选餐食">
+            <div class="filter-group"><span class="filter-label">就餐场景</span><div class="segmented" id="foodSceneFilters"><button class="selected" data-scene="all">全部</button><button data-scene="campus">食堂</button><button data-scene="convenience">便利店</button><button data-scene="market">超市</button></div></div>
+            <div class="food-toolbar-right"><label class="search-box"><span>⌕</span><input id="foodSearch" placeholder="搜一搜食物" /></label><label class="budget-inline">预算 <select id="foodBudget"><option value="18">¥18以内</option><option value="20">¥20以内</option><option value="22" selected>¥22以内</option><option value="30">¥30以内</option></select></label></div>
+          </div>
+          <section class="nearby-food-panel" aria-labelledby="nearbyFoodHeading">
+            <div class="nearby-food-head">
+              <div><span class="card-index">NEARBY FOOD · LIVE POI</span><h2 id="nearbyFoodHeading">附近有什么可选的？</h2><p>输入学校、地铁站或商圈名称即可搜索，不用开启定位权限。</p></div>
+              <button class="outline-button nearby-gps-button" id="nearbyFoodButton" type="button">用当前位置 ⌖</button>
+            </div>
+            <form class="nearby-place-search" id="nearbyPlaceForm">
+              <label class="sr-only" for="nearbyPlaceInput">输入学校、地铁站或商圈名称</label>
+              <input id="nearbyPlaceInput" maxlength="120" placeholder="如：上海大学" autocomplete="off" />
+              <button class="primary-button nearby-food-button" id="searchNearbyPlace" type="submit"><span>搜索附近</span><b>↗</b></button>
+            </form>
+            <p class="nearby-food-status" id="nearbyFoodStatus" role="status" aria-live="polite">搜索时才会提交地点名称；地图点位不包含实时菜单、价格或库存。</p>
+            <div class="nearby-food-results" id="nearbyFoodResults" aria-live="polite" hidden></div>
+            <div class="nearby-map-fallbacks" id="nearbyMapFallbacks" hidden><a class="nearby-map-fallback" id="nearbyMapFallback" target="_blank" rel="noopener">打开高德地图 ↗</a><a class="nearby-map-fallback nearby-google-map-fallback" id="nearbyGoogleMapFallback" target="_blank" rel="noopener">用 Google Maps 搜索 ↗</a><small>Google Maps 在中国境内可能无法稳定加载；高德结果通常更适合本地使用。</small></div>
+            <p class="nearby-food-privacy">只有在你点击搜索或允许定位后，才会查询附近地点。门店信息不包含实时菜单、价格或库存。</p>
+          </section>
+          <section class="food-recommendation-section" data-page-unit="推荐餐食">
+          <div class="food-result-heading"><div><span class="card-index">YOUR PICKS</span><h2>适合今天的选择</h2></div><span class="result-count" id="foodResultCount">— 个选项</span></div>
+          <p class="food-recommendation-basis" id="foodRecommendationBasis" role="status" aria-live="polite"></p>
+          <div class="food-grid" id="foodGrid"></div>
+          <div class="food-note"><span class="note-spark">✳</span><div><strong>餐食数据说明</strong><p>先显示符合当前校区和准入条件的团队采集记录；其他卡片是通用演示搭配，不代表该校区真实菜单、价格或库存。附近地点来自地图公开数据，不包含实时库存或交易。</p></div></div>
+          </section>
+          <section class="campus-match-context card-surface" aria-label="校区餐饮来源与说明">
+            <div class="campus-match-source" id="campusMatchSource" aria-live="polite"></div>
+            <div class="campus-match-points" id="campusDiningPoints"></div>
+            <p class="campus-gap-caveat">“今日还差”= 个人参考目标 − 已记录摄入，仅用于帮助挑选下一餐，不代表必须补足，也不是医疗或减重处方。校方公开点位不等于实时菜单；营养值需有独立来源。</p>
+          </section>
+          <section class="campus-qr-menu card-surface" id="campusMarketplaceMenu" data-page-unit="上外菜单参考" hidden>
+            <div class="campus-qr-menu-heading"><div><span class="card-index">SISU · MENU SNAPSHOT</span><h2 id="campusMarketplaceMenuHeading">上外菜单参考</h2><p>按目标、预算和关键词从上外菜单快照中挑选。菜单采集于 2026-11-04。公开版配图仅为菜型示意，价格和营养值仅供参考。</p></div><span class="campus-qr-menu-count" id="campusMarketplaceMenuMeta">读取菜单快照…</span></div>
+            <div class="campus-qr-menu-filters"><label>搜菜名或店铺<input id="campusMenuSearch" type="search" placeholder="例如：猪肚鸡、食棠" autocomplete="off" /></label><label>预算上限<select id="campusMenuBudget"><option value="12">¥12以内</option><option value="18" selected>¥18以内</option><option value="22">¥22以内</option><option value="30">¥30以内</option><option value="50">不限（¥50）</option></select></label><a href="https://market.waimai.meituan.com/gundam/nmRr2YBm/index.html" target="_blank" rel="noopener">打开本次菜单页 ↗</a></div>
+            <p class="campus-menu-goal-note" id="campusMenuGoalNote" role="status" aria-live="polite"></p>
+            <div class="campus-menu-picks" id="campusMenuPicks"></div>
+            <div class="campus-qr-menu-store-list" id="campusMenuStoreList" aria-live="polite"></div>
+            <p class="campus-qr-menu-footnote">来源：用户提供的上外食堂公开可检索商铺截图归档，快照整理于 2026-11-04；共 19 家店、212 道去重菜、223 张来源图。显示价/月售均为截图观察值，不代表当前在售、库存或结算价。商家未提供克重和营养表；点击估算后仅把所选裁切图发送至已配置模型，结果需自行核对且不会自动计入摄入。</p>
+          </section>
+          <details class="food-logs-details" data-page-unit="饮食记录"><summary><strong>查看今天已记录的餐食</strong><span>修改或删除已保存的饮食记录</span></summary><div id="dailyNutritionLog" class="daily-nutrition-log" aria-live="polite"></div></details>
+
+        </section>
+
+        <section class="view" id="view-calories" aria-labelledby="calorieHeading">
+          <div class="page-intro calorie-page-intro"><div class="eyebrow"><span class="eyebrow-line"></span> TODAY'S ENERGY · LIVE LOG</div><h1 id="calorieHeading">今天的摄入与<em>消耗。</em></h1><p><span id="calorieTodayLabel">今天</span> · 餐食记入后统计摄入，训练动作完成后逐项累计运动消耗。</p></div>
+          <section class="calorie-dashboard card-surface" id="calorieDashboard" aria-label="今日卡路里汇总" data-page-unit="今日能量">
+            <div class="calorie-dashboard-head"><div><span class="card-index">YOUR DAILY CALORIES</span><h2>今日概览</h2><p>这里只统计已记录的餐食与运动。</p></div><span class="calorie-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13.2 2.8 5.8 13h5l-.8 8.2L18.2 11h-5z" /></svg></span></div>
+            <div class="calorie-main-grid">
+              <article class="calorie-stat calorie-intake-stat"><span>摄入能量</span><strong><b id="calorieIntakeValue">—</b><small>kcal</small></strong><div class="calorie-progress-track"><i id="calorieIntakeProgress"></i></div><small class="calorie-stat-detail"><b id="calorieIntakeTarget">0 / — kcal</b> · 对照每日参考值</small></article>
+              <article class="calorie-stat calorie-burn-stat"><span>运动消耗</span><strong><b id="calorieBurnValue">—</b><small>kcal</small></strong><small class="calorie-stat-detail" id="calorieBurnDetail">完成一个训练动作后自动汇总</small></article>
+              <article class="calorie-stat"><span>基础代谢 / 静息能量</span><strong><b id="calorieRestingValue">—</b></strong><small class="calorie-stat-detail" id="calorieRestingDetail">补齐资料后显示估算</small></article>
+              <article class="calorie-stat calorie-subtotal-stat"><span>静息能量 + 运动</span><strong><b id="calorieSubtotalValue">—</b></strong><small class="calorie-stat-detail">仅为小计，不等于全天总消耗</small></article>
+            </div>
+            <div class="calorie-macros"><span>今日三大营养素</span><strong id="calorieMacroSummary">记入餐食后显示碳水、蛋白质和脂肪合计</strong></div>
+            <div class="calorie-manual-entry"><div><strong>记录其他运动</strong><small>如散步、骑行；不含已打卡训练，避免重复记账。</small></div><label><span class="sr-only">其他运动消耗千卡</span><input id="manualExerciseKcalInputCalories" type="number" min="0" max="5000" step="10" inputmode="numeric" placeholder="kcal" /></label><button id="saveManualExerciseKcalCalories" type="button">保存</button></div>
+            <p class="calorie-caveat">能量和运动消耗均为记录或估算值。基础代谢与运动小计不包含全天其他活动；自动摄入参考已按日常活动等级估算，不能再把运动热量重复加进目标。</p>
+          </section>
+          <section class="nutrition-dashboard card-surface" aria-labelledby="nutritionDashboardTitle" data-page-unit="营养对照与配餐">
+            <div class="nutrition-dashboard-head">
+              <div><span class="card-index">营养摄入对照</span><h2 id="nutritionDashboardTitle">今天的营养摄入对照</h2><p>热量见上方；这里对比今天已记录的碳水、蛋白质和脂肪。</p></div>
+              <div class="energy-target-tools"><label class="energy-target-control" for="energyTargetInput"><span>每日能量参考值</span><span><input id="energyTargetInput" type="number" min="1000" max="5000" step="50" inputmode="numeric" aria-label="每日能量参考值" aria-describedby="energyTargetNote" /> kcal</span></label><button class="energy-mode-toggle" id="energyModeToggle" type="button">切换手动</button></div>
+            </div>
+            <p class="energy-target-note" id="energyTargetNote"></p>
+            
+            <div id="nutritionComparison" class="nutrition-comparison" aria-live="polite"></div>
+            <div class="nutrition-impact" id="nutritionGoalImpact" aria-live="polite"></div>
+            <details class="nutrition-source-tools" data-page-unit="食材数据来源"><summary><strong>高级：食材配餐与数据来源</strong><span>按克数换算 · 查看来源和估算口径</span></summary><div class="nutrition-source-content"><div class="nutrition-recommendation-head sourced-food-heading"><div><span class="card-index">SOURCE-TRACKED FOOD DATA</span><h3>有来源的食材营养参考</h3></div><span>按实际可食重量记录</span></div>
+            <p class="sourced-food-intro">以下10种食材逐条链接到中国疾控中心营养与健康所的食物成分记录。数值按每100克可食部计算，口径依据 <a href="https://www.chinanutri.cn/fgbz/fgbzhybz/201707/P020170721479798369359.pdf" target="_blank" rel="noopener">WS/T 464—2015</a>；原表能量单位为kJ，页面换算为kcal。它们是基础食材参考，不等同于加油、调味后的整道菜。</p>
+            <section class="sourced-recipe-builder" aria-labelledby="sourcedRecipeTitle">
+              <div class="sourced-recipe-heading"><div><span class="card-index">BUILD A MEAL · SOURCE BASED</span><h4 id="sourcedRecipeTitle">按食材配一餐</h4></div><span>可编辑示例组合</span></div>
+              <p>组合中的每一项都能追溯到来源记录。克数按可食部分填写，合计会随份量更新。</p>
+              <div class="sourced-recipe-add"><label for="recipeFoodSelect">选择食材<select id="recipeFoodSelect"></select></label><label for="recipeFoodGrams">可食重量<input id="recipeFoodGrams" type="number" min="1" max="2000" step="1" value="100" inputmode="numeric" /> <span>g</span></label><button id="addRecipeIngredient" type="button">加入组合 <span aria-hidden="true">＋</span></button></div>
+              <div id="sourcedRecipeIngredients" class="sourced-recipe-ingredients" aria-live="polite"></div>
+              <div id="sourcedRecipeTotals" class="sourced-recipe-totals" aria-live="polite"></div>
+              <button id="logSourcedRecipe" class="sourced-recipe-log" type="button">记入今日摄入</button>
+              <p class="sourced-recipe-caveat">这是基础食材相加的估算；未计入烹饪油、酱料、额外配料，也未修正熟制时水分变化。以每项来源注明的食品形态为准。</p>
+            </section>
+            <details class="sourced-food-details"><summary>查看10种食材及逐条来源</summary><div id="sourcedFoodLibrary" class="sourced-food-grid" aria-live="polite"></div></details>
+            <p class="sourced-food-rights">数据来源：中国疾控中心营养与健康所食物营养成分查询平台。平台声明商业使用需事先获得许可；本原型仅作比赛演示参考。<a href="https://www.chinanutri.cn/yyzyxxpt/sjzx/swcfsjk/201911/t20191128_207183.html" target="_blank" rel="noopener">查看平台说明与版权边界</a>。</p>
+            <p class="nutrition-reference-note">成年自动维持能量依据 <a href="https://www.nationalacademies.org/read/26818/chapter/7" target="_blank" rel="noopener">2023年NASEM EER预测方程</a>，综合年龄、身高、体重、公式类别和活动等级；基础代谢/静息能量参考 <a href="https://pubmed.ncbi.nlm.nih.gov/2305711/" target="_blank" rel="noopener">Mifflin–St Jeor 方程</a>。方程存在个体误差，不自动生成减重热量缺口。碳水、蛋白质、脂肪比例参考 <a href="https://www.nhc.gov.cn/ewebeditor/uploadfile/2017/10/20171017152901174.pdf" target="_blank" rel="noopener">WS/T 578.1—2017</a>，按能量换算；也可切换手动参考值。当前只估算热量和三大营养素，暂无纤维、钠及维生素/矿物质的完整记录。单日摄入不能预测体重或体脂变化。</p></div></details>
+          </section>
+          <div class="calorie-record-grid">
+            <section class="calorie-record-card card-surface" data-page-unit="摄入明细"><div class="calorie-record-heading"><span class="calorie-record-icon intake-icon" aria-hidden="true">＋</span><div><span class="card-index">FOOD IN</span><h2>摄入明细</h2></div></div><ul id="calorieIntakeLog" class="calorie-record-list"><li class="calorie-empty">今天还没有摄入记录。</li></ul><button type="button" class="calorie-link" data-view-target="food">去吃点好，记录一餐 <span>→</span></button></section>
+            <section class="calorie-record-card card-surface" data-page-unit="运动消耗明细"><div class="calorie-record-heading"><span class="calorie-record-icon burn-icon" aria-hidden="true">↗</span><div><span class="card-index">MOVE OUT</span><h2>消耗明细</h2></div></div><ul id="calorieBurnLog" class="calorie-record-list"><li class="calorie-empty">今天还没有运动消耗记录。</li></ul><button type="button" class="calorie-link" data-view-target="training">去训练，完成动作打卡 <span>→</span></button></section>
+          </div>
+          <div class="disclaimer"><span>ⓘ</span> 摄入估算会受食物识别、份量和配方影响；运动消耗受强度与个体差异影响。请把数值当作记录参考，不作为医疗或减重处方。</div>
+        </section>
+
+        <section class="view" id="view-progress" aria-labelledby="progressHeading">
+          <div class="page-intro"><div class="eyebrow"><span class="eyebrow-line"></span> SMALL STEPS COUNT</div><h1 id="progressHeading">回头看，<em>你一直在走。</em></h1><p>记录帮助你看见规律，不用一两天的波动评价自己。</p></div>
+          <section class="profile-goals-summary" aria-label="身体记录与目标" data-page-unit="身体数据与目标">
+            <article class="profile-goal-metric"><span>当前体重</span><strong><span id="progressCurrentWeight">68.4</span><small>kg</small></strong><small>最新一次记录</small></article>
+            <article class="profile-goal-metric"><span>当前体脂率</span><strong><span id="currentBodyfat">22.5</span><small id="currentBodyfatUnit">%</small></strong><small id="currentBodyfatNote">仅作趋势记录</small></article>
+            <article class="profile-goal-metric"><span>目标体重</span><strong><span id="targetWeight">64.0</span><small>kg</small></strong><small>按个人节奏调整</small></article>
+            <article class="profile-goal-metric"><span>目标体脂率</span><strong><span id="targetBodyfat">19.5%</span></strong><small id="targetBodyfatNote">不预测达成日期</small></article>
+          </section>
+          <div class="progress-overview">
+            <article class="progress-summary card-surface" data-page-unit="本周训练统计"><div class="card-index">THIS WEEK / CHECK-IN</div><div class="summary-big"><strong id="summaryDone">2</strong><span>次完成</span></div><div class="summary-line"><span>本周训练计划</span><strong>4 次</strong></div><div class="progress-bar"><span id="summaryBar" style="width:50%"></span></div><div class="weekly-energy"><span>记录训练的估算消耗</span><strong id="weeklyKcal">— kcal</strong></div><p>这周不必补课。从今天开始，按当下状态调整就好。</p></article>
+            <article class="weight-card card-surface" data-page-unit="体重趋势"><div class="compact-heading"><div><div class="card-index">WEIGHT TREND</div><h3>体重记录</h3></div><span class="trend-chip">最近记录 <b id="weightDelta">—</b></span></div><div class="chart-wrap"><div class="chart-y-labels"><span id="weightAxisTop">—</span><span id="weightAxisMid">—</span><span id="weightAxisBottom">—</span></div><svg class="weight-chart" viewBox="0 0 600 220" role="img" aria-label="本地体重记录趋势图"><defs><linearGradient id="chartFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#c8e56b" stop-opacity=".42"/><stop offset="1" stop-color="#c8e56b" stop-opacity="0"/></linearGradient></defs><path class="chart-gridline" d="M0 30H600M0 100H600M0 170H600"/><path class="chart-area" id="chartArea" d="M15 100 L590 100 L590 190 L15 190Z"/><path class="chart-line" id="chartLine" d="M15 100 L590 100"/><circle cx="590" cy="100" r="6" class="chart-point" id="chartPoint"/></svg><div class="chart-x-labels" id="chartXLabels"></div></div><div class="chart-foot">本地图表 · 只显示已记录的体重变化</div></article>
+          </div>
+          <section class="adjustment-card" data-page-unit="下周调整"><div class="adjustment-icon">↗</div><div><div class="card-index">NEXT WEEK, A LITTLE DIFFERENT</div><h2 id="adjustmentTitle">下周安排：继续稳稳来</h2><p id="adjustmentText">你有2次训练完成记录。我们保留熟悉的动作模板，给每次训练留出休息空间。</p></div><span class="adjustment-stamp">PLAN<br />ADAPTED</span></section>
+          <section class="weekly-log card-surface" data-page-unit="训练与体重记录"><div class="compact-heading"><div><div class="card-index">YOUR CHECK-INS</div><h3>本周训练与体重</h3></div><button class="outline-button" id="addWeight">＋ 记一次体重</button></div><div id="trainingLogList" class="training-log-list"></div><div id="checkinLog" class="checkin-log"></div></section>
+          <div class="disclaimer"><span>ⓘ</span> 体重变化受多种因素影响，本趋势只用于自我记录。原型不预测精确达标日期，也不作医疗判断。</div>
+        </section>
+      </main>
+
+      <nav class="mobile-nav" aria-label="移动端导航">
+        <button class="active" data-view-target="today"><span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="16" rx="2.5" /><path d="M8 3v4M16 3v4M3.5 9h17M8 13h3M8 17h6" /></svg></span><small>今天</small></button>
+        <button data-view-target="food"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3v6m4-6v6M4 6h4M6 9v12M14 3v18M18 3v18M14 8c0-2.8 1.3-5 3-5" /></svg></span><small>吃饭</small></button>
+        <button class="calorie-nav-item" data-view-target="calories"><span class="calorie-nav-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 2.8 5.8 13h5l-.8 8.2L18.2 11h-5z" /></svg></span><small>能量</small></button>
+        <button data-view-target="training"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6M7 6v12M7 12h10M17 6v12M20 9v6" /></svg></span><small>训练</small></button>
+        <button data-view-target="progress"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5V5M4 19.5H20M7 15l4-4 3 2 5-6" /></svg></span><small>进度</small></button>
+      </nav>
+      <div class="guided-session-dock" id="guidedSessionDock" hidden aria-live="polite"></div>
+    </div>
+
+    <div class="modal-backdrop" id="profileModal" aria-hidden="true">
+      <section class="profile-modal" role="dialog" aria-modal="true" aria-labelledby="profileHeading">
+        <button class="modal-close" id="closeProfile" aria-label="关闭">×</button>
+        <div class="eyebrow"><span class="eyebrow-line"></span> PERSONAL PROFILE</div>
+        <h2 id="profileHeading">个人档案与设置</h2><p>资料保存在当前浏览器，不会自动上传或跨设备同步。请勿在他人共用设备上保存不愿公开的健康信息。</p>
+        <button class="profile-restart-onboarding" id="restartOnboarding" type="button">重新体验新手建档 <span aria-hidden="true">↗</span></button>
+        <form id="profileForm" class="profile-form">
+          <label>称呼<input name="name" id="profileName" maxlength="8" value="小周" /></label>
+          <label>所属高校<input name="universityName" id="profileUniversity" maxlength="80" list="campusSchoolSuggestions" required placeholder="如：上海外国语大学" autocomplete="organization" /></label>
+          <p class="profile-campus-note">高校信息仅保存在当前浏览器，可随时修改。</p>
+          <label>当前目标<select name="goalType" id="profileGoalType"><option value="daily">日常均衡</option><option value="muscle_gain">健身增肌</option><option value="fat_loss">减脂塑形</option><option value="weight_loss">减重管理</option></select></label>
+          <div class="form-two"><label>当前体重（kg）<input name="weight" id="profileWeight" type="number" min="35" max="200" step="0.1" value="68.4" /></label><label>目标体重（kg）<input name="target" id="profileTarget" type="number" min="35" max="200" step="0.1" value="64" /></label></div>
+          <div class="form-two"><label>身高（cm）<input name="heightCm" id="profileHeight" type="number" min="120" max="220" step="0.1" placeholder="填写后参与估算" /></label><label>年龄（岁）<input name="age" id="profileAge" type="number" min="18" max="100" step="1" placeholder="19岁以下不计算成人参考值" /></label></div>
+          <label>能量估算公式类别<select name="energySex" id="profileEnergySex"><option value="">暂不自动估算</option><option value="female">女性参考公式</option><option value="male">男性参考公式</option></select></label>
+          <label>日常活动等级<select name="activityLevel" id="profileActivityLevel"><option value="">请选择</option><option value="inactive">久坐少动</option><option value="lowActive">低活动</option><option value="active">活动</option><option value="veryActive">高活动</option></select></label>
+          <p class="profile-energy-note">自动估算仅适用于19岁及以上成年人的维持能量参考。活动等级按全天总体活动量选择：久坐少动（PAL＜1.4）、低活动（1.4–＜1.6）、活动（1.6–＜1.9）、高活动（1.9–2.5），不只看单次训练；也可保留空白并使用手动值。</p>
+          <div class="form-two"><label>当前体脂率（选填）<input name="bodyfat" id="profileBodyfat" type="number" min="5" max="60" step="0.1" value="22.5" /></label><label>目标体脂率（选填）<input name="targetBodyfat" id="profileTargetBodyfat" type="number" min="5" max="60" step="0.1" value="19.5" /></label></div>
+          <label>每餐预算（元）<input name="budget" id="profileBudget" type="number" min="8" max="100" step="1" value="22" /></label>
+          <label>就餐场景<select name="scene" id="profileScene"><option value="campus">校内食堂</option><option value="convenience">便利店</option><option value="market">超市</option></select></label>
+          <div class="profile-data-tools"><div><strong>本地数据备份</strong><small>训练、饮食和档案只在当前浏览器保存；可导出文件，换设备后再导入。</small></div><div class="profile-data-actions"><button class="outline-button" type="button" id="exportProfileData">导出备份</button><button class="outline-button" type="button" id="importProfileData">导入备份</button><input id="profileDataFile" type="file" accept="application/json,.json" hidden /></div></div>
+          <div class="profile-reset-tools"><span><strong>演示资料</strong><small>恢复初始档案、训练和饮食记录。</small></span><button class="outline-button" type="button" id="resetDemo">恢复演示数据</button></div>
+          <div class="modal-actions"><button type="button" class="outline-button" id="cancelProfile">取消</button><button class="primary-button" type="submit">保存档案 <span>↗</span></button></div>
+        </form>
+      </section>
+    </div>
+
+    <div class="modal-backdrop onboarding-backdrop" id="onboardingModal" aria-hidden="true">
+      <section class="profile-modal onboarding-modal" role="dialog" aria-modal="true" aria-labelledby="onboardingHeading" aria-describedby="onboardingDescription">
+        <button class="modal-close" id="closeOnboarding" type="button" aria-label="稍后填写">×</button>
+        <div class="eyebrow"><span class="eyebrow-line"></span> FIRST DAY, MADE EASY</div>
+        <h2 id="onboardingHeading">先让小拾认识你</h2>
+        <p id="onboardingDescription">分几步填写，选填内容可以留空，以后也能修改。</p>
+        <div class="onboarding-progress" aria-live="polite">
+          <div class="onboarding-progress-top"><strong id="onboardingStepLabel">认识你</strong><span id="onboardingStepCount">第 1 / 3 步</span></div>
+          <div class="onboarding-progress-track" role="progressbar" id="onboardingProgress" aria-label="建档进度" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1"><span></span></div>
+        </div>
+        <form id="onboardingForm" class="profile-form onboarding-form" novalidate>
+          <fieldset class="onboarding-step is-active" data-onboarding-step="1">
+            <legend tabindex="-1">先认识你</legend>
+            <label>怎么称呼你？<input name="name" id="onboardName" maxlength="8" placeholder="输入昵称，选填" autocomplete="nickname" /></label>
+            <label>你的高校<input name="universityName" id="onboardUniversity" maxlength="80" list="campusSchoolSuggestions" required placeholder="输入或选择高校名称" autocomplete="organization" /></label>
+            <label>当前体重（kg）<input name="weight" id="onboardWeight" type="number" min="35" max="200" step="0.1" required inputmode="decimal" placeholder="如 65" /></label>
+            <div class="form-two"><label>身高（cm，选填）<input name="heightCm" id="onboardHeight" type="number" min="120" max="220" step="0.1" inputmode="decimal" placeholder="如 170" /></label><label>年龄（岁，选填）<input name="age" id="onboardAge" type="number" min="18" max="100" step="1" inputmode="numeric" placeholder="如 20" /></label></div>
+            <p class="onboarding-help">输入高校名称即可搜索，也可以直接填写。</p>
+          </fieldset>
+          <fieldset class="onboarding-step" data-onboarding-step="2" hidden>
+            <legend tabindex="-1">目标与生活状态</legend>
+            <label>日常活动量<select name="activityLevel" id="onboardActivity"><option value="">暂不设置</option><option value="inactive">久坐少动</option><option value="lowActive">低活动</option><option value="active">活动较多</option><option value="veryActive">高活动</option></select></label>
+            <label>能量估算类别<select name="energySex" id="onboardEnergySex"><option value="">暂不自动估算</option><option value="female">女性参考公式</option><option value="male">男性参考公式</option></select></label>
+            <p class="onboarding-help">填写年龄、身高、活动量和估算类别后，可估算每日能量需求；未填写时使用演示参考值。</p>
+            <label>你现在更想<select name="goalType" id="onboardGoalType" required><option value="daily">日常均衡 · 规律吃练</option><option value="muscle_gain">健身增肌 · 力量提升</option><option value="fat_loss">减脂塑形 · 关注饮食结构</option><option value="weight_loss">减重管理 · 稳步调整</option></select></label>
+            <label>目标体重（kg，选填）<input name="target" id="onboardTarget" type="number" min="35" max="200" step="0.1" inputmode="decimal" placeholder="不填则使用当前体重" /></label>
+            <div class="form-two"><label>当前体脂率（%，选填）<input name="bodyfat" id="onboardBodyfat" type="number" min="5" max="60" step="0.1" inputmode="decimal" placeholder="可留空" /></label><label>目标体脂率（%，选填）<input name="targetBodyfat" id="onboardTargetBodyfat" type="number" min="5" max="60" step="0.1" inputmode="decimal" placeholder="可留空" /></label></div>
+            <p class="onboarding-help">没有测过体脂率也没关系，可以先留空。</p>
+          </fieldset>
+          <fieldset class="onboarding-step" data-onboarding-step="3" hidden>
+            <legend tabindex="-1">吃饭与运动</legend>
+            <label>单餐预算（元）<input name="budget" id="onboardBudget" type="number" min="8" max="100" step="1" inputmode="numeric" value="22" /></label>
+            <label>常见就餐场景<select name="scene" id="onboardScene"><option value="campus">校园食堂</option><option value="convenience">便利店</option><option value="market">超市自选</option></select></label>
+            <label>餐食偏好<select name="foodPreference" id="onboardFoodPreference"><option value="balanced">均衡搭配</option><option value="high-protein">优先高蛋白</option><option value="vegetarian">植物性餐食</option></select></label>
+            <p class="onboarding-help">餐食热量和价格为估算，具体以实际份量及门店为准。</p>
+            <p class="onboarding-section-title">运动安排</p>
+            <label>想优先练什么<select name="trainingFocus" id="onboardFocus"><option value="full">全身基础</option><option value="chest">胸部</option><option value="back">背部</option><option value="shoulders">肩部</option><option value="legs">腿部</option><option value="glutes">臀部</option><option value="core">核心稳定</option><option value="cardio">低冲击有氧</option><option value="running">跑步 / 跑走交替</option><option value="gym">健身房综合力量</option><option value="recovery">轻松恢复</option></select></label>
+            <label>训练器材<select name="trainingEquipment" id="onboardEquipment"><option value="bodyweight">徒手 / 家用椅</option><option value="band">弹力带</option><option value="dumbbell">轻哑铃</option><option value="gym">健身房器械</option><option value="running">跑步机 / 户外</option></select></label>
+            <label>单次训练时长<select name="trainingDuration" id="onboardDuration"><option value="15">约 15 分钟</option><option value="20">约 20 分钟</option><option value="25" selected>约 25 分钟</option><option value="30">约 30 分钟</option><option value="35">约 35 分钟</option><option value="40">约 40 分钟</option><option value="45">约 45 分钟</option><option value="50">约 50 分钟</option><option value="60">约 60 分钟</option></select></label>
+            <p class="onboarding-help">之后可以随时调整训练部位、器材和时长。</p>
+          </fieldset>
+          <div class="onboarding-privacy"><span aria-hidden="true">◉</span><p>档案保存在此浏览器。</p></div>
+          <div class="onboarding-actions">
+            <button type="button" class="outline-button onboarding-back" id="onboardingBack" hidden>上一步</button>
+            <button type="button" class="outline-button onboarding-skip" id="skipOnboarding">先逛逛</button>
+            <button type="submit" class="primary-button onboarding-submit" id="onboardingSubmit">下一步</button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <datalist id="campusSchoolSuggestions"></datalist>
+
+    <div class="assistant-widget" id="assistantWidget">
+      <section class="assistant-dialog" id="assistantDialog" role="dialog" aria-modal="false" aria-labelledby="assistantDialogTitle" hidden>
+        <header class="assistant-dialog-header">
+          <img class="assistant-dialog-mascot" src="./assets/xiaoshi-mascot.png?v=20261030-xiaoshi-v1" alt="" />
+          <div class="assistant-dialog-heading">
+            <span class="card-index">SHIHENG AI · 小拾陪你安排</span>
+            <h2 id="assistantDialogTitle">一句话，排好今天</h2>
+            <span class="online-mark" id="agentModeBadge" data-mode="checking" role="status" aria-live="polite" title="正在检查本地服务模式"><i aria-hidden="true"></i><span id="agentModeLabel">检查中…</span></span>
+          </div>
+          <button class="assistant-dialog-close" id="assistantDialogClose" type="button" aria-label="关闭对话">×</button>
+        </header>
+        <p class="assistant-copy">说出时间、预算或状态，小拾会把餐食与训练一起安排。第一次用？点一个例子试试。</p>
+        <div class="assistant-starter-list assistant-dialog-prompts" aria-label="点选一个体验场景">
+          <button class="assistant-starter" type="button" data-prompt="我今天只有20分钟，食堂预算25元，想在健身房练背并吃高蛋白">
+            <span class="assistant-starter-number">01</span><span class="assistant-starter-copy"><strong>时间不多</strong><small>20 分钟 · 健身房练背 · ¥25</small></span>
+          </button>
+          <button class="assistant-starter" type="button" data-prompt="我今天有点累，想安排轻松训练，午餐想吃素">
+            <span class="assistant-starter-number">02</span><span class="assistant-starter-copy"><strong>今天有点累</strong><small>轻松练 · 午餐吃素</small></span>
+          </button>
+          <button class="assistant-starter" type="button" data-prompt="我想跑步30分钟，午餐预算20元，优先补充蛋白质">
+            <span class="assistant-starter-number">03</span><span class="assistant-starter-copy"><strong>想去跑一跑</strong><small>跑步 30 分钟 · 高蛋白</small></span>
+          </button>
+        </div>
+        <div class="assistant-chat-log" id="assistantChatLog" role="log" aria-live="polite" aria-relevant="additions text">
+          <div class="assistant-response" id="assistantResponse"><span class="response-mark" aria-hidden="true"></span><span>嗨，我是小拾。今天有什么变化？告诉我时间、预算或状态，我陪你一起安排。</span></div>
+        </div>
+        <button class="assistant-plan-link" id="assistantPlanLink" type="button" data-scroll-target="todayPlan" hidden>查看今日方案 <span aria-hidden="true">↓</span></button>
+        <form class="assistant-form assistant-chat-form" id="assistantForm">
+          <label class="sr-only" for="assistantInput">描述今天的变化，拾衡将生成餐食和训练安排</label>
+          <textarea id="assistantInput" maxlength="1200" rows="2" placeholder="说说今天的时间、预算或状态…" autocomplete="off"></textarea>
+          <button type="submit" aria-label="发送并生成今日安排"><span>发送</span><b aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3 11 18-8-7.5 18-2.6-7.9L3 11Z"/><path d="M11 13 21 3"/></svg></b></button>
+        </form>
+        <p class="assistant-privacy-note">公开体验版在浏览器内用本地规则调整计划。个人档案、对话和记录留在本机。</p>
+        <details class="assistant-settings"><summary>演示与隐私设置</summary>
+          <div class="assistant-demo-control"><button type="button" id="localDemoToggle" aria-pressed="false">本地演示模式 <span id="localDemoState">关闭</span></button><p>开启后计划调整不调用 AI，直接用本地规则；适合断网演示。</p></div>
+        </details>
+        <details class="agent-execution-details" id="agentExecutionDetails" hidden><summary>查看这次如何安排</summary>
+          <ol class="agent-execution-trace" id="agentExecutionTrace" aria-label="本次智能体执行步骤" hidden></ol>
+        </details>
+      </section>
+      <button class="assistant-widget-toggle" id="assistantWidgetToggle" type="button" aria-label="打开小拾助手；按住可拖动位置" title="按住小拾可拖动，轻点可打开对话" aria-expanded="false" aria-controls="assistantDialog">
+        <img src="./assets/xiaoshi-mascot.png?v=20261030-xiaoshi-v1" alt="" />
+        <span class="assistant-widget-label" id="assistantWidgetLabel">找小拾聊聊</span>
+      </button>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="./exercise-illustrations.js?v=20261021-training-mobile-motion-v1"></script>
+    <script src="./plan-intent.js?v=20261030-first-impression-v1"></script>
+    <script src="./app.js?v=sisu-home-photos-v2"></script>
+  </body>
+</html>

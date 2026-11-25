@@ -1,0 +1,249 @@
+[
+  {
+    "id": "c1",
+    "name": "番茄鸡蛋杂粮饭",
+    "scene": "campus",
+    "sceneName": "通用搭配样例",
+    "price": 16,
+    "emoji": "🍅",
+    "color": "#e8eddb",
+    "description": "谷物主食配鸡蛋与蔬菜，清爽饱腹。",
+    "kcal": 486,
+    "carbs": 62,
+    "protein": 20,
+    "fat": 16,
+    "tags": [
+      "vegetarian",
+      "balanced"
+    ],
+    "source": "演示估算"
+  },
+  {
+    "id": "c2",
+    "name": "香煎鸡胸谷物碗",
+    "scene": "campus",
+    "sceneName": "通用搭配样例",
+    "price": 22,
+    "emoji": "🥗",
+    "color": "#e4edd8",
+    "description": "鸡胸、杂粮和时蔬组合，蛋白质相对充足。",
+    "kcal": 518,
+    "carbs": 54,
+    "protein": 36,
+    "fat": 15,
+    "tags": [
+      "high-protein",
+      "balanced"
+    ],
+    "source": "演示估算",
+    "image": "./assets/video-meals/01-chicken-grain.png"
+  },
+  {
+    "id": "c3",
+    "name": "豆腐菌菇盖饭",
+    "scene": "campus",
+    "sceneName": "通用搭配样例",
+    "price": 15,
+    "emoji": "🍄",
+    "color": "#ece9d9",
+    "description": "豆制品搭配菌菇和米饭，植物性选择。",
+    "kcal": 472,
+    "carbs": 65,
+    "protein": 21,
+    "fat": 13,
+    "tags": [
+      "vegetarian",
+      "balanced"
+    ],
+    "source": "演示估算",
+    "image": "./assets/video-meals/02-tofu-mushroom.png"
+  },
+  {
+    "id": "c4",
+    "name": "黑椒牛肉时蔬饭",
+    "scene": "campus",
+    "sceneName": "通用搭配样例",
+    "price": 24,
+    "emoji": "🥩",
+    "color": "#f1e2d6",
+    "description": "牛肉与蔬菜搭配主食，适合训练日午餐。",
+    "kcal": 558,
+    "carbs": 63,
+    "protein": 31,
+    "fat": 18,
+    "tags": [
+      "high-protein"
+    ],
+    "source": "演示估算"
+  },
+  {
+    "id": "c5",
+    "name": "清蒸鱼配米饭",
+    "scene": "campus",
+    "sceneName": "通用搭配样例",
+    "price": 25,
+    "emoji": "🐟",
+    "color": "#dfecef",
+    "description": "鱼类、主食和蔬菜的家常搭配。",
+    "kcal": 510,
+    "carbs": 59,
+    "protein": 32,
+    "fat": 14,
+    "tags": [
+      "high-protein",
+      "balanced"
+    ],
+    "source": "演示估算"
+  },
+  {
+    "id": "c6",
+    "name": "鸡肉蔬菜卷",
+    "scene": "campus",
+    "sceneName": "通用搭配样例",
+    "price": 18,
+    "emoji": "🌯",
+    "color": "#f1e9d4",
+    "description": "方便带走的一餐，搭配一份水果更完整。",
+    "kcal": 432,
+    "carbs": 48,
+    "protein": 27,
+    "fat": 13,
+    "tags": [
+      "high-protein"
+    ],
+    "source": "演示估算"
+  },
+  {
+    "id": "v1",
+    "name": "高蛋白酸奶 + 香蕉",
+    "scene": "convenience",
+    "sceneName": "便利店样例",
+    "price": 15,
+    "emoji": "🍌",
+    "color": "#f4edcd",
+    "description": "即买即食的轻便组合，真实营养以包装标签为准。",
+    "kcal": 286,
+    "carbs": 42,
+    "protein": 18,
+    "fat": 5,
+    "tags": [
+      "vegetarian",
+      "quick"
+    ],
+    "source": "演示估算",
+    "image": "./assets/video-meals/04-fruit-yogurt.png"
+  },
+  {
+    "id": "v2",
+    "name": "鸡蛋三明治 + 无糖豆浆",
+    "scene": "convenience",
+    "sceneName": "便利店样例",
+    "price": 17,
+    "emoji": "🥪",
+    "color": "#efe6d7",
+    "description": "主食与蛋白质来源都有，适合赶时间。",
+    "kcal": 398,
+    "carbs": 46,
+    "protein": 21,
+    "fat": 13,
+    "tags": [
+      "quick"
+    ],
+    "source": "演示估算"
+  },
+  {
+    "id": "v3",
+    "name": "金枪鱼饭团 + 茶叶蛋",
+    "scene": "convenience",
+    "sceneName": "便利店样例",
+    "price": 14,
+    "emoji": "🍙",
+    "color": "#e8eee2",
+    "description": "简单易买的一餐组合，注意查看钠含量。",
+    "kcal": 354,
+    "carbs": 49,
+    "protein": 19,
+    "fat": 8,
+    "tags": [
+      "high-protein",
+      "quick"
+    ],
+    "source": "演示估算"
+  },
+  {
+    "id": "v4",
+    "name": "即食鸡胸 + 玉米",
+    "scene": "convenience",
+    "sceneName": "便利店样例",
+    "price": 20,
+    "emoji": "🌽",
+    "color": "#f0e9ca",
+    "description": "方便搭配的组合，真实营养以包装标签和实际份量为准。",
+    "kcal": 326,
+    "carbs": 35,
+    "protein": 29,
+    "fat": 7,
+    "tags": [
+      "high-protein",
+      "quick"
+    ],
+    "source": "演示估算"
+  },
+  {
+    "id": "m1",
+    "name": "鸡蛋豆腐蔬菜拼盘",
+    "scene": "market",
+    "sceneName": "超市样例",
+    "price": 19,
+    "emoji": "🥚",
+    "color": "#f2e8d6",
+    "description": "鸡蛋、豆腐和即食蔬菜的简单自选搭配。",
+    "kcal": 372,
+    "carbs": 31,
+    "protein": 27,
+    "fat": 16,
+    "tags": [
+      "vegetarian",
+      "balanced"
+    ],
+    "source": "演示估算"
+  },
+  {
+    "id": "m2",
+    "name": "金枪鱼全麦轻食碗",
+    "scene": "market",
+    "sceneName": "超市样例",
+    "price": 26,
+    "emoji": "🥬",
+    "color": "#e4edda",
+    "description": "全麦主食、鱼类与蔬菜，适合想要清爽口味时。",
+    "kcal": 465,
+    "carbs": 51,
+    "protein": 30,
+    "fat": 14,
+    "tags": [
+      "high-protein",
+      "balanced"
+    ],
+    "source": "演示估算"
+  },
+  {
+    "id": "m3",
+    "name": "牛奶燕麦水果杯",
+    "scene": "market",
+    "sceneName": "超市样例",
+    "price": 18,
+    "emoji": "🥣",
+    "color": "#f1eadb",
+    "description": "早餐或加餐组合，注意确认乳制品过敏信息。",
+    "kcal": 342,
+    "carbs": 51,
+    "protein": 16,
+    "fat": 9,
+    "tags": [
+      "vegetarian",
+      "quick"
+    ],
+    "source": "演示估算"
+  }
+]
